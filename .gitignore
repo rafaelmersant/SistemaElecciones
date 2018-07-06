@@ -1,3 +1,5 @@
 Web.config
 Web.Release.config
 Web.Debug.config
+App_Data
+bin
