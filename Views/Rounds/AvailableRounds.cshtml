@@ -1,0 +1,24 @@
+﻿@model SistemaElecciones.Models.AvailableRoundsViewModel
+
+@{
+    ViewBag.Title = "AvailableRounds";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rondas Disponibles para Elecciones</h2>
+
+@{
+    foreach (var round in Model.Rounds)
+    {
+        <table>
+            <tr>
+                <td>
+                    <a class="btn btn-primary" href="~/Rounds/CandidatesForRound/@round.Id"> @round.Id) @round.Category.Description -- @round.Candidacy.Description -- @round.Period </a>
+                </td>
+                <td>
+                    <a class="btn btn-dark" href="~/Rounds/ResultsForRound/@round.Id"> Ver Resultados </a>
+                </td>
+            </tr>
+        </table>
+    }
+}

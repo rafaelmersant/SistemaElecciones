@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+    var roundId = ViewBag.roundId;
+    var photo = ViewBag.photoCandidate;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ha votado</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div style="text-align: center;">
+        <span class="high-letter">Gracias por Votar</span>
+        <div>
+            <img src="~/Photos/@photo" alt="photo candidate" width="250"/>
+        </div>
+
+    </div>
+
+    @{
+        Response.AddHeader("REFRESH", "2, Url=/appElecciones/Rounds/CandidatesForRound/" + roundId);
+    }
+
+</body>
+</html>

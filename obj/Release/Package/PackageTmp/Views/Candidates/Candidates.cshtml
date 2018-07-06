@@ -1,0 +1,80 @@
+﻿@model SistemaElecciones.Models.CandidateViewModel
+
+@{
+    ViewBag.Title = "Candidatos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mantenimiento de Candidatos</h2>
+
+@Html.ValidationSummary(false, "", new { @style = "color: red" })
+
+@using (Html.BeginForm("Save", "Candidates", FormMethod.Post, new { enctype = "multipart/form-data"} ))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Candidate.Name)
+        @Html.TextBoxFor(c => c.Candidate.Name, new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(c => c.Candidate.CandidacyId)
+        @Html.DropDownListFor(c => c.Candidate.CandidacyId, new SelectList(Model.Candidacies, "Id", "Description"), new { @class = "form-control" })
+    </div>
+    
+    <div>
+        @Html.LabelFor(c => c.Candidate.Period)
+        @Html.TextBoxFor(c => c.Candidate.Period, new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        @Html.Label("Foto")
+        @Html.TextBox("file", "", new { type = "file", @class = "form-control" })
+    </div>
+    
+    @Html.Hidden("Candidate.Id", (Model != null) ? Model.Candidate.Id : 0)
+    @Html.HiddenFor(c => c.Candidate.Id)
+    @Html.AntiForgeryToken()
+    
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    <a class="btn btn-dark" href="~/Candidates/Candidates">Nuevo Candidato</a>
+}
+
+<br />
+<br />
+
+@{
+    var candidates = ViewBag.candidates;
+}
+
+<div class="panel-group">
+    <h4>Listado de Candidatos</h4>
+
+    <table id="candidates" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Candidatura</th>
+                <th>Periodo</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        @{
+            foreach (var candidate in candidates)
+            {
+                <tr>
+                    <td>@candidate.Id</td>
+                    <td> <img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" height="100" /> </td>
+                    <td>@candidate.Name</td>
+                    <td>@candidate.Candidacy.Description</td>
+                    <td>@candidate.Period</td>
+                    <td><a href="~/Candidates/Edit/@candidate.Id"> Editar </a></td>
+                    <td><a href="~/Candidates/Delete/@candidate.Id"> Eliminar </a></td>
+                </tr>
+            }
+        }
+    </table>
+</div>

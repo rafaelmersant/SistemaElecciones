@@ -1,0 +1,100 @@
+﻿@model SistemaElecciones.Models.RoundViewModel
+
+@{
+    ViewBag.Title = "Rounds";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mantenimiento de Rondas de Elecciones</h2>
+
+<a class="btn btn-outline-dark" href="~/Rounds/AvailableRounds">IR A ELECCIONES</a>
+
+@Html.ValidationSummary(false, "", new { @style = "color: red" })
+
+@using (Html.BeginForm("Save", "Rounds"))
+{
+    <div class="form-group">
+        @Html.LabelFor(r => r.Round.CategoryId)
+        @Html.DropDownListFor(r => r.Round.CategoryId, new SelectList(Model.Categories, "Id", "Description"), new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(r => r.Round.CandidacyId)
+        @Html.DropDownListFor(r => r.Round.CandidacyId, new SelectList(Model.Candidacies, "Id", "Description"), new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(r => r.Round.Period)
+        @Html.TextBoxFor(r => r.Round.Period, new { @class = "form-control" })
+    </div>
+    
+    @Html.Hidden("Round.Id", (Model != null) ? Model.Round.Id : 0)
+    @Html.HiddenFor(c => c.Round.Id)
+    @Html.AntiForgeryToken()
+
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    <button class="btn btn-dark" type="reset">Nueva Ronda</button>
+}
+
+<br />
+<br />
+
+@{
+    var estatus = "Abierta";
+    var rounds = ViewBag.rounds;
+}
+
+<div class="panel-group">
+    <h4>Listado de Rondas</h4>
+    
+    <table id="rounds" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Categoria</th>
+                <th>Candidatura</th>
+                <th>Periodo</th>
+                <th>Estatus</th>
+                <th>Cerrar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        @{
+            foreach (var round in rounds)
+            {
+                
+                if (round.Closed == false)
+                {
+                    estatus = "Abierta";
+                }
+                else
+                {
+                    estatus = "Cerrada";
+                }
+                
+                <tr>
+                    <td>@round.Id</td>
+                    <td>@round.Category.Description</td>
+                    <td>@round.Candidacy.Description</td>
+                    <td>@round.Period</td>
+                    <td>@estatus</td>
+                    <td>
+                        @{
+                if (round.Closed == false)
+                {
+                    <a href="~/Rounds/Close/@round.Id" class="btn btn-dark"> Cerrar</a>
+                }
+                        }
+                    </td>
+
+
+                    <td><a href="~/Rounds/Delete/@round.Id"> Eliminar </a></td>
+                </tr>
+            }
+        }
+    </table>
+
+
+
+</div>

@@ -1,0 +1,61 @@
+﻿@model SistemaElecciones.Models.Category
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mantenimiento de Categorias</h2>
+
+@using (Html.BeginForm("Save", "Categories"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Description)
+        @Html.TextBoxFor(c => c.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Description)
+    </div>
+
+    @Html.Hidden("Id", (Model != null) ? Model.Id : 0)
+    @Html.HiddenFor(c => c.Id)
+    @Html.AntiForgeryToken()
+   
+    <button class="btn btn-primary" type="submit"> Guardar </button>
+}
+
+<br />
+<br />
+
+@{
+    var categories = ViewBag.categories;
+}
+
+<div class="panel-group">
+    <h4>Listado de Categorias</h4>
+
+    <table id="categories" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        @{
+            foreach (var category in categories)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Description</td>
+                    <td><a href="~/Categories/Delete/@category.Id"> Eliminar </a></td>
+                </tr>
+            }
+        }
+    </table>
+
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

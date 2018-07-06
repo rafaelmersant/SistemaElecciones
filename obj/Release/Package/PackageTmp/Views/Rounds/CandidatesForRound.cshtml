@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SistemaElecciones.Models.Candidate>
+
+@{
+    Layout = null;
+
+    var id = Context.Request.QueryString["id"];
+}
+
+<h4>Candidatos</h4>
+
+<table>
+
+    @{
+        
+            
+        foreach (var candidate in Model)
+        {
+            <tr>
+                <td>
+                    <a class="btn btn-block" href="~/Rounds/CandidatesForRound/@id/@candidate.Id"><img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" height="200" /></a>
+                    <span class="form-control">@candidate.Name</span>
+                </td>
+                <td>
+                    <a class="btn btn-block" href="~/Rounds/CandidatesForRound/@id/@candidate.Id"><img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" height="200" /></a>
+                    <span class="form-control">@candidate.Name</span>
+                </td>
+                <td>
+                    <a class="btn btn-block" href="~/Rounds/CandidatesForRound/@id/@candidate.Id"><img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" height="200" /></a>
+                    <span class="form-control">@candidate.Name</span>
+                </td>
+                <td>
+                    <a class="btn btn-block" href="~/Rounds/CandidatesForRound/@id/@candidate.Id"><img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" height="200" /></a>
+                    <span class="form-control">@candidate.Name</span>
+                </td>
+                <td>
+                    <a class="btn btn-block" href="~/Rounds/CandidatesForRound/@id/@candidate.Id"><img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" height="200" /></a>
+                    <span class="form-control">@candidate.Name</span>
+                </td>
+                <td>
+                    <a class="btn btn-block" href="~/Rounds/CandidatesForRound/@id/@candidate.Id"><img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" height="200" /></a>
+                    <span class="form-control">@candidate.Name</span>
+                </td>
+            </tr>
+        
+        }
+
+    }
+</table>
+
+
