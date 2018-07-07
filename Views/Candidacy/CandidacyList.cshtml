@@ -55,7 +55,8 @@
                     <td>@candidacy.Id</td>
                     <td>@candidacy.Description</td>
                     <td>@candidacy.Category.Description</td>
-                    <td><a href="~/Candidacy/Delete/@candidacy.Id"> Eliminar </a></td>
+                    <td>@Html.ActionLink("Eliminar", "Delete", "Candidacy", new { Id = candidacy.Id }, new { @class = "btn btn-secondary" }) </td>
+                    
                 </tr>
             }
         }

@@ -48,3 +48,17 @@ textarea {
     font-size: 3em;
     color:red;
 }
+
+.icon-size {
+
+    font-size: 2em;
+}
+
+.text-red {
+    color: red;
+}
+
+.bg-red {
+    background-color: red;
+    border-color: red;
+}
