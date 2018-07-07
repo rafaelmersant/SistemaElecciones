@@ -20,6 +20,8 @@
     @Html.AntiForgeryToken()
    
     <button class="btn btn-primary" type="submit"> Guardar </button>
+
+    <h4 class="text-red">Si elimina una categoria se elimina todo lo relacionado con la misma.</h4>
 }
 
 <br />
@@ -29,15 +31,15 @@
     var categories = ViewBag.categories;
 }
 
-<div class="panel-group">
+<div class="panel-group" >
     <h4>Listado de Categorias</h4>
 
     <table id="categories" class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
+                <th class="text-center">Id</th>
                 <th>Descripcion</th>
-                <th>Eliminar</th>
+                <th class="text-center">Eliminar</th>
             </tr>
         </thead>
 
@@ -45,9 +47,11 @@
             foreach (var category in categories)
             {
                 <tr>
-                    <td>@category.Id</td>
+                    <td class="text-center">@category.Id</td>
                     <td>@category.Description</td>
-                    <td><a href="~/Categories/Delete/@category.Id"> Eliminar </a></td>
+                    <td class="text-center">
+                        @Html.ActionLink(" ", "Delete", "Categories", new { Id = category.Id }, new { @class = "icon-size text-red glyphicon glyphicon-trash" })
+                    </td>
                 </tr>
             }
         }

@@ -36,7 +36,7 @@
     @Html.AntiForgeryToken()
     
     <button class="btn btn-primary" type="submit">Guardar</button>
-    <a class="btn btn-dark" href="~/Candidates/Candidates">Nuevo Candidato</a>
+    @Html.ActionLink("Nuevo Candidato", "Index", "Candidates", null, new { @class = "btn btn-primary bg-red" })
 }
 
 <br />
@@ -44,6 +44,8 @@
 
 @{
     var candidates = ViewBag.candidates;
+    //var showThis = candidates == null ? "invisible" : "visible";
+
 }
 
 <div class="panel-group">
@@ -57,8 +59,8 @@
                 <th>Nombre</th>
                 <th>Candidatura</th>
                 <th>Periodo</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+                <th class="text-center">Editar</th>
+                <th class="text-center">Eliminar</th>
             </tr>
         </thead>
 
@@ -71,8 +73,8 @@
                     <td>@candidate.Name</td>
                     <td>@candidate.Candidacy.Description</td>
                     <td>@candidate.Period</td>
-                    <td><a href="~/Candidates/Edit/@candidate.Id"> Editar </a></td>
-                    <td><a href="~/Candidates/Delete/@candidate.Id"> Eliminar </a></td>
+                    <td class="text-center">@Html.ActionLink(" ", "Edit", "Candidates", new { Id = candidate.Id }, new { @class = "icon-size glyphicon glyphicon-edit" }) </td>
+                    <td class="text-center">@Html.ActionLink(" ", "Delete", "Candidates", new { Id = candidate.Id }, new { @class = "icon-size text-red glyphicon glyphicon-trash" }) </td>
                 </tr>
             }
         }

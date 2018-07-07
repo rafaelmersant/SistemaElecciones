@@ -21,12 +21,15 @@
             }
         })();
 
-        function VoteNow(roundId, candidateId) {
+        function VoteNow(url, candidateId) {
 
             playSound();
 
             setTimeout(function () {
-                window.location.href = 'http://10.0.0.12/appElecciones/Rounds/CandidatesForRound/' + roundId + '/' + candidateId;
+                console.log(url);
+                console.log(candidateId);
+
+                window.location.href = url + '/' + candidateId;
             }, 1000);
 
         }
@@ -38,7 +41,9 @@
         @{
             foreach (var candidate in Model.Candidates)
             {
-                <a href="#" onclick="VoteNow(@Model.RoundId, @candidate.Id)">
+                var urlWithRound = Request.Url.OriginalString;
+                
+                <a href="#" onclick="VoteNow('@urlWithRound', @candidate.Id)">
                     <img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" style="width: 150px;" />
                 </a>
             }

@@ -37,6 +37,7 @@
         Response.AddHeader("REFRESH", "2, Url=");
     }
 
-    <a class="btn btn-primary" href="~/Rounds">Ir a Rondas</a>
+    @Html.ActionLink("Ir a Rondas", "Index", "Rounds", null, new { @class = "btn btn-primary left-space bg-red" })
+
 </body>
 </html>

@@ -13,10 +13,13 @@
         <table>
             <tr>
                 <td>
-                    <a class="btn btn-primary" href="~/Rounds/CandidatesForRound/@round.Id"> @round.Id) @round.Category.Description -- @round.Candidacy.Description -- @round.Period </a>
+                    @Html.ActionLink(String.Format("{0}) {1} -- {2} -- {3}",
+                    round.Id, round.Category.Description, round.Candidacy.Description, round.Period),
+                    "CandidatesForRound", new { Id = round.Id }, new { @class = "btn btn-primary" })
                 </td>
+
                 <td>
-                    <a class="btn btn-dark" href="~/Rounds/ResultsForRound/@round.Id"> Ver Resultados </a>
+                    @Html.ActionLink("Ver Resultados", "ResultsForRound", "Rounds", new { Id = round.Id }, new { @class = "btn btn-primary bg-red" })
                 </td>
             </tr>
         </table>

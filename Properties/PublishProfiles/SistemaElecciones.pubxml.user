@@ -73,10 +73,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2018 20:13:26</publishTime>
     </File>
     <File Include="bin/SistemaElecciones.dll">
-      <publishTime>07/01/2018 21:21:44</publishTime>
+      <publishTime>07/06/2018 22:41:39</publishTime>
     </File>
     <File Include="bin/SistemaElecciones.pdb">
-      <publishTime>07/01/2018 21:21:44</publishTime>
+      <publishTime>07/06/2018 22:41:39</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>06/05/2018 20:13:15</publishTime>
@@ -112,7 +112,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2018 20:13:13</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>07/01/2018 21:44:42</publishTime>
+      <publishTime>07/06/2018 22:17:43</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>06/05/2018 20:13:06</publishTime>
@@ -131,6 +131,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Global.asax">
       <publishTime>06/05/2018 20:13:06</publishTime>
+    </File>
+    <File Include="Images/logocepasH.jpg">
+      <publishTime>07/06/2018 22:32:59</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>06/05/2018 20:13:28</publishTime>
@@ -226,16 +229,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2018 20:13:21</publishTime>
     </File>
     <File Include="Views/Candidacy/CandidacyList.cshtml">
-      <publishTime>06/24/2018 22:56:47</publishTime>
+      <publishTime>07/06/2018 21:28:08</publishTime>
     </File>
     <File Include="Views/Candidates/Candidates.cshtml">
-      <publishTime>06/28/2018 23:10:22</publishTime>
+      <publishTime>07/06/2018 21:05:35</publishTime>
     </File>
     <File Include="Views/Categories/Index.cshtml">
-      <publishTime>06/25/2018 11:14:01</publishTime>
+      <publishTime>07/06/2018 22:44:25</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/30/2018 17:58:49</publishTime>
+      <publishTime>07/06/2018 22:36:23</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>06/05/2018 20:13:22</publishTime>
@@ -256,16 +259,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2018 20:13:22</publishTime>
     </File>
     <File Include="Views/Rounds/AvailableRounds.cshtml">
-      <publishTime>06/30/2018 22:48:10</publishTime>
+      <publishTime>07/06/2018 22:11:40</publishTime>
     </File>
     <File Include="Views/Rounds/CandidatesForRound.cshtml">
-      <publishTime>07/03/2018 08:05:14</publishTime>
+      <publishTime>07/07/2018 08:03:25</publishTime>
     </File>
     <File Include="Views/Rounds/ResultsForRound.cshtml">
-      <publishTime>06/30/2018 23:42:15</publishTime>
+      <publishTime>07/06/2018 22:18:23</publishTime>
     </File>
     <File Include="Views/Rounds/Rounds.cshtml">
-      <publishTime>06/29/2018 13:01:42</publishTime>
+      <publishTime>07/07/2018 07:49:05</publishTime>
     </File>
     <File Include="Views/Rounds/VoteGiven.cshtml">
       <publishTime>07/03/2018 07:55:42</publishTime>
