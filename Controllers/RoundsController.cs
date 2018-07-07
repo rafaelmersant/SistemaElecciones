@@ -87,6 +87,16 @@ namespace SistemaElecciones.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Close(int id)
+        {
+            var round = _context.Rounds.Single(r => r.Id == id);
+
+            round.Closed = true;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult AvailableRounds()
         {
             var rounds = _context.Rounds

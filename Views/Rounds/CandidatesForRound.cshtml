@@ -38,17 +38,15 @@
         @{
             foreach (var candidate in Model.Candidates)
             {
-                @*<a href="~/Rounds/CandidatesForRound/@Model.RoundId/@candidate.Id">
-                    <img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" style="width: 150px;"/>
-                </a>*@
-
                 <a href="#" onclick="VoteNow(@Model.RoundId, @candidate.Id)">
                     <img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" style="width: 150px;" />
                 </a>
             }
         }
+
     </div>
 
-    <a class="btn btn-primary" href="~/Rounds">Ir a elecciones</a>
+    @Html.ActionLink("Ir a Rondas", "Index", "Rounds", null, new { @class = "btn btn-primary left-space bg-red" })
+
 </body>
 </html>

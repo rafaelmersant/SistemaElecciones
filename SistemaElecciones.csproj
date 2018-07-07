@@ -326,6 +326,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\logocepasH.jpg" />
     <Content Include="Photos\image.jpg" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\photos.html" />

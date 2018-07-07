@@ -17,7 +17,7 @@
 
     <div class="form-group">
         @Html.LabelFor(c => c.Candidacy.CategoryId)
-        @Html.DropDownListFor(c => c.Candidacy.CategoryId, new SelectList(Model.Categories, "Id", "Description"), "", new { @class = "form-control" })
+        @Html.DropDownListFor(c => c.Candidacy.CategoryId, new SelectList(Model.Categories, "Id", "Description"), "Seleccionar...", new { @class = "form-control" })
         @Html.ValidationMessageFor(c => c.Candidacy.CategoryId)
     </div>
 
@@ -26,6 +26,7 @@
     @Html.AntiForgeryToken()
     
     <button class="btn btn-primary" type="submit">Guardar</button>
+    @Html.ActionLink("Nueva Candidatura", "Index", "Candidacy", null, new { @class = "btn btn-primary bg-red" })
 }
 
 <br />
@@ -41,10 +42,10 @@
     <table id="candidacies" class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
+                <th class="text-center">Id</th>
                 <th>Descripcion</th>
                 <th>Categoria</th>
-                <th>Eliminar</th>
+                <th class="text-center">Eliminar</th>
             </tr>
         </thead>
 
@@ -52,10 +53,10 @@
             foreach (var candidacy in candidacies)
             {
                 <tr>
-                    <td>@candidacy.Id</td>
+                    <td class="text-center">@candidacy.Id</td>
                     <td>@candidacy.Description</td>
                     <td>@candidacy.Category.Description</td>
-                    <td>@Html.ActionLink("Eliminar", "Delete", "Candidacy", new { Id = candidacy.Id }, new { @class = "btn btn-secondary" }) </td>
+                    <td class="text-center">@Html.ActionLink(" ", "Delete", "Candidacy", new { Id = candidacy.Id }, new { @class = "icon-size text-red glyphicon glyphicon-trash" }) </td>
                     
                 </tr>
             }

@@ -7,7 +7,7 @@
 
 <h2>Mantenimiento de Rondas de Elecciones</h2>
 
-<a class="btn btn-outline-dark" href="~/Rounds/AvailableRounds">IR A ELECCIONES</a>
+<a class="btn btn-primary bg-red" href="~/Rounds/AvailableRounds">IR A ELECCIONES</a>
 
 @Html.ValidationSummary(false, "", new { @style = "color: red" })
 
@@ -33,7 +33,7 @@
     @Html.AntiForgeryToken()
 
     <button class="btn btn-primary" type="submit">Guardar</button>
-    <button class="btn btn-dark" type="reset">Nueva Ronda</button>
+    <button class="btn btn-primary bg-red" type="reset">Nueva Ronda</button>
 }
 
 <br />
@@ -50,13 +50,13 @@
     <table id="rounds" class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
+                <th class="text-center">Id</th>
                 <th>Categoria</th>
                 <th>Candidatura</th>
                 <th>Periodo</th>
                 <th>Estatus</th>
-                <th>Cerrar</th>
-                <th>Eliminar</th>
+                <th class="text-center">Cerrar</th>
+                <th class="text-center">Eliminar</th>
             </tr>
         </thead>
 
@@ -74,22 +74,24 @@
                 }
                 
                 <tr>
-                    <td>@round.Id</td>
+                    <td class="text-center">@round.Id</td>
                     <td>@round.Category.Description</td>
                     <td>@round.Candidacy.Description</td>
                     <td>@round.Period</td>
                     <td>@estatus</td>
-                    <td>
+                    <td class="text-center">
                         @{
                 if (round.Closed == false)
                 {
-                    <a href="~/Rounds/Close/@round.Id" class="btn btn-dark"> Cerrar</a>
+                    @Html.ActionLink(" ", "Close", "Rounds", new { Id = round.Id }, new { @class = "icon-size glyphicon glyphicon-eye-open" });
                 }
                         }
                     </td>
 
 
-                    <td><a href="~/Rounds/Delete/@round.Id"> Eliminar </a></td>
+                    <td class="text-center">
+                        @Html.ActionLink(" ", "Delete", "Rounds", new { Id = round.Id }, new { @class = "icon-size text-red glyphicon glyphicon-trash" })
+                    </td>
                 </tr>
             }
         }
