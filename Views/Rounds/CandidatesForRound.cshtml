@@ -23,6 +23,9 @@
 
         function VoteNow(url, candidateId) {
 
+            document.getElementById("panelCandidates").style.pointerEvents = "none";
+            document.getElementById("panelCandidates").cursor = "default";
+
             playSound();
 
             setTimeout(function () {
@@ -37,13 +40,13 @@
 
 </head>
 <body class="without-space">
-    <div class="wrapper">
+    <div id="panelCandidates" class="wrapper">
         @{
             foreach (var candidate in Model.Candidates)
             {
                 var urlWithRound = Request.Url.OriginalString;
                 
-                <a href="#" onclick="VoteNow('@urlWithRound', @candidate.Id)">
+                <a class="btnCandidates" href="#" onclick="VoteNow('@urlWithRound', @candidate.Id)">
                     <img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" style="width: 150px;" />
                 </a>
             }
@@ -53,5 +56,6 @@
 
     @Html.ActionLink("Ir a Rondas", "Index", "Rounds", null, new { @class = "btn btn-primary left-space bg-red" })
 
+    @Scripts.Render("~/bundles/jquery")
 </body>
 </html>

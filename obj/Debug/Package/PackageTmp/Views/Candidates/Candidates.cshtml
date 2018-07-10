@@ -18,7 +18,7 @@
     
     <div class="form-group">
         @Html.LabelFor(c => c.Candidate.CandidacyId)
-        @Html.DropDownListFor(c => c.Candidate.CandidacyId, new SelectList(Model.Candidacies, "Id", "Description"), new { @class = "form-control" })
+        @Html.DropDownListFor(c => c.Candidate.CandidacyId, new SelectList(Model.Candidacies, "Id", "Description"), "Seleccionar...", new { @class = "form-control" })
     </div>
     
     <div>

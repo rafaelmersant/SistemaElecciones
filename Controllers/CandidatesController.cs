@@ -51,10 +51,13 @@ namespace SistemaElecciones.Controllers
                 if (file != null && file.ContentLength > 0)
                 {
                     string filename = Path.GetFileName(file.FileName);
+                    string ext = Path.GetExtension(file.FileName);
                     string filepath = Path.Combine(Server.MapPath("~/Photos"), filename);
-                    file.SaveAs(filepath);
+                    string fileSaveAs = candidate.Name.Replace(" ","_") + ext;
 
-                    candidate.photoUrl = filename;
+                    file.SaveAs(filepath.Replace(filename, fileSaveAs));
+
+                    candidate.photoUrl = fileSaveAs;
                 }
 
                 if (!ModelState.IsValid && string.IsNullOrEmpty(candidate.photoUrl) )

@@ -21,11 +21,14 @@
             }
         })();
 
-        function VoteNow(url, roundId, candidateId) {
+        function VoteNow(url, candidateId) {
 
             playSound();
 
             setTimeout(function () {
+                console.log(url);
+                console.log(candidateId);
+
                 window.location.href = url + '/' + candidateId;
             }, 1000);
 
@@ -40,7 +43,7 @@
             {
                 var urlWithRound = Request.Url.OriginalString;
                 
-                <a href="#" onclick="VoteNow(@urlWithRound, @Model.RoundId, @candidate.Id)">
+                <a class="btnCandidates" href="#" onclick="VoteNow('@urlWithRound', @candidate.Id)">
                     <img src="~/Photos/@candidate.photoUrl" alt="@candidate.photoUrl" style="width: 150px;" />
                 </a>
             }
@@ -50,5 +53,6 @@
 
     @Html.ActionLink("Ir a Rondas", "Index", "Rounds", null, new { @class = "btn btn-primary left-space bg-red" })
 
+    @Scripts.Render("~/bundles/jquery")
 </body>
 </html>

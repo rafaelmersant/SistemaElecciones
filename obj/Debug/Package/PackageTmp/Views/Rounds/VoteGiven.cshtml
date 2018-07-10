@@ -25,7 +25,9 @@
     </div>
 
     @{
-        Response.AddHeader("REFRESH", "2, Url=/appElecciones/Rounds/CandidatesForRound/" + roundId);
+        var urlToBack = Request.UrlReferrer.OriginalString;
+        
+        Response.AddHeader("REFRESH", "2, Url=" + urlToBack);
     }
 
 </body>
